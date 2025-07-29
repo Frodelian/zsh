@@ -72,12 +72,20 @@ bindkey '^j' history-search-forward # ctrl + j
 bindkey '^k' history-search-backward # ctrl + k
 
 # Aliases
-alias ls='ls --color'
 alias df="duf"  
 alias lf='/bin/lfub' 
 if [ -x "$(command -v exa)" ]; then
-    alias la="exa --long --all --group"
-fi 
+  ls() {
+    if [[ "$#" -eq 1 && ("$1" = "-la" || "$1" = "-al") ]]; then
+      exa --long --all --group
+    else
+      command ls --color "$@"
+    fi
+  }
+else
+  alias ls='ls --color'
+fi
+
 
 alias vim='nvim'
 alias clear='echo -ne "\033c"' # для того чтобы clear всё очищал 

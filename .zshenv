@@ -13,8 +13,8 @@ then
 	export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 fi
 
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 export TERMINAL="alacritty"
 export BROWSER="firefox"
 
